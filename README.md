@@ -1,4 +1,4 @@
-# Lab B2 — Infrastructure sécurisée pour LINÉOR Joaillerie
+# Lab B2 - Infrastructure sécurisée pour LINÉOR Joaillerie
 
 > Projet annuel Bachelor 2 (Cybersécurité) : conception, déploiement et supervision d'une infrastructure système et réseau complète, de zéro, pour une startup fictive de joaillerie en ligne.
 
@@ -16,7 +16,6 @@
 
 Virtualisation : **VirtualBox**. Réseau web isolé sur un second segment (`192.168.2.0/24`) pour cloisonner le trafic applicatif du réseau d'administration.
 
-![Schéma d'architecture](screenshots/00-schema-architecture-reseau.png)
 
 ## 📦 Contenu du repo
 
@@ -28,12 +27,11 @@ Virtualisation : **VirtualBox**. Réseau web isolé sur un second segment (`192.
 ├── web/
 │   ├── stock.php               # Page web dynamique de gestion du stock
 │   └── config.example.php      # Modèle de config (les vrais identifiants ne sont jamais commités)
-├── screenshots/                # Captures numérotées (annexes du dossier de rendu)
 └── docs/
     └── PROJET_B2.pdf           # Dossier de rendu complet
 ```
 
-## 🔐 Projet 1 — Infrastructure locale (AD, DHCP, DNS)
+## 🔐 Projet 1 - Infrastructure locale (AD, DHCP, DNS)
 
 - Déploiement d'**Active Directory Domain Services** sur `lineor.local`
 - **DHCP** avec plage 192.168.1.20–192.168.1.100
@@ -43,7 +41,7 @@ Virtualisation : **VirtualBox**. Réseau web isolé sur un second segment (`192.
 - **Politique de mot de passe** : 10 caractères min, complexité obligatoire, expiration 90 jours
 - **Windows Firewall** : uniquement les ports nécessaires ouverts
 
-## 🌐 Projet 2 — Services web virtualisés (stack AMP)
+## 🌐 Projet 2 - Services web virtualisés (stack AMP)
 
 - Stack **Apache + MySQL/MariaDB + PHP** installée sur le serveur
 - Base **`lineor_stock`** avec table `produits` (`sql/lineor_stock.sql`)
@@ -51,7 +49,7 @@ Virtualisation : **VirtualBox**. Réseau web isolé sur un second segment (`192.
 - Second réseau virtuel dédié au trafic web (192.168.2.0/24) pour cloisonner des services d'administration
 - Compte MySQL dédié en **lecture seule** pour l'application (pas d'usage du compte root)
 
-## 📊 Projet 3 — Supervision, détection d'incident et maintenance
+## 📊 Projet 3 - Supervision, détection d'incident et maintenance
 
 - **Zabbix** déployé via Docker sur Kali Linux (contournement des soucis de compatibilité de Zabbix Server sur Linux natif)
 - KPI surveillés : CPU (seuil 80%/95%), RAM (75%/90%), espace disque (<20%), disponibilité des services, latence réseau
@@ -72,10 +70,6 @@ hydra -s 3389 -l Administrateur -P /usr/share/wordlists/rockyou.txt -t 4 192.168
 ## 🛠️ Stack technique
 
 `VirtualBox` `Windows Server 2022` `Active Directory` `DHCP/DNS` `PowerShell` `Apache` `MySQL/MariaDB` `PHP` `Docker` `Zabbix` `Kali Linux` `Hydra`
-
-## 📸 Captures
-
-Toutes les captures du dossier de rendu sont dans `/screenshots`, numérotées dans l'ordre du projet (configuration VM → AD → DHCP → services web → supervision → détection d'attaque).
 
 ---
 
