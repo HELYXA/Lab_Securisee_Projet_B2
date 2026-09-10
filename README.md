@@ -27,8 +27,7 @@ Virtualisation : **VirtualBox**. Réseau web isolé sur un second segment (`192.
 ├── web/
 │   ├── stock.php               # Page web dynamique de gestion du stock
 │   └── config.example.php      # Modèle de config (les vrais identifiants ne sont jamais commités)
-└── docs/
-    └── PROJET_B2.pdf           # Dossier de rendu complet
+
 ```
 
 ## 🔐 Projet 1 - Infrastructure locale (AD, DHCP, DNS)
